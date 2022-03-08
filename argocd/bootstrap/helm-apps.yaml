@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: helm-bootstrap
+  namespace: openshift-gitops
+spec:
+  generators:
+  - list:
+      elements:
+      - env: dev
+      - env: pre
+      - env: prod
+  template:
+    metadata:
+      name: 'helm-{{env}}-helloworld'
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: 'https://github.com/dbgjerez/kustomize-vs-helm.git'
+        targetRevision: HEAD
+        path: argocd/applications/helm
+        helm:
+          valueFiles:
+            - values.{{env}}.yaml
