@@ -149,6 +149,13 @@ spec:
 ```
 
 ## Example
+In this example we will deploy the same application using Kustomize and Helm. The application will be deployed in different environment which are represented as namespaces.
+
+I've chosen an easy golang application, but it's indifferent the application to use given that we're running a container. The data of application are:
+
+| Application       | Repository                                             | Image                             |
+|-------------------|--------------------------------------------------------|-----------------------------------|
+| golang-helloworld | https://github.com/dbgjerez/golang-k8s-helm-helloworld | b0rr3g0/golang-hello-world:latest |
 
 ### ArgoCD
 
