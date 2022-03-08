@@ -75,6 +75,8 @@ spec:
   replicas: 1
 ```
 
+> NOTE: Kustomize merges base and overlay files, but it needs a key to identify both files are the same. For that, uses the name and kind of the file, being impossible to change these values. 
+
 ## Helm
 
 ## Example
