@@ -78,13 +78,98 @@ spec:
 > NOTE: Kustomize merges base and overlay files, but it needs a key to identify both files are the same. For that, uses the name and kind of the file, being impossible to change these values. 
 
 ## Helm
+Helm is a package manager for Kubernetes, also works like template engine, facilitating the work with different applications and environment. 
 
+### Structure
+A chart contains a ```Chart.yaml``` file with the metadata of the chart. This file identifies the chart name, version, description, etc. 
+
+Inside the ```templates``` folder we found a base of templates where the values are substitute. If we check a template file, we see some placeholders that references a ```{{ .Values...}}} ```.
+
+Once the chart is finish, we only have to manage the values file. We can develop a file for each environment. 
+
+```zsh
+❯ tree
+.
+├── charts
+├── Chart.yaml
+├── templates
+│   ├── hello-world.yaml
+│   ├── namespace.yaml
+│   └── tests
+└── values.yaml
+
+3 directories, 4 files
+```
+
+### Usage
+The usage of Helm is basically executing a ```Chart``` with a ```values.yaml``` file. We can have so many values file as we need. The ```values.yaml``` file contain the default values that can be overridden with or own values. 
+
+> NOTE: In this example, we will use helm like a template engine. It's possible to package a chart and deploy it in a registry to be reused. 
+
+```dev``` env contains the same values that the ```values.yaml``` so we don't need a special values file:
+
+```zsh
+❯ helm template .
+---
+# Source: helm-features/templates/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+---
+# Source: helm-features/templates/hello-world.yaml
+apiVersion: v1
+kind: Test
+metadata:
+  name: hello-world
+spec:
+  message: hello
+  replicas: 1
+```
+
+```pre``` env overwrites two values, so we have to create a ```values.yaml``` file with both. In this case, I've called it ```values-pre.yaml```. When we generate the templates, we have to indicate the file:
+
+```zsh
+❯ helm template -f values-pre.yaml .
+---
+# Source: helm-features/templates/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pre
+---
+# Source: helm-features/templates/hello-world.yaml
+apiVersion: v1
+kind: Test
+metadata:
+  name: hello-world
+spec:
+  message: Hello world from pre!
+  replicas: 1
+```
+
+```zsh
+❯ helm template -f values-pre.yaml .
+---
+# Source: helm-features/templates/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pre
+---
+# Source: helm-features/templates/hello-world.yaml
+apiVersion: v1
+kind: Test
+metadata:
+  name: hello-world
+spec:
+  message: Hello world from pre!
+  replicas: 1
+```
 ## Example
 
 ### ArgoCD
 
 ### Use case
-
-### Conclusion
 
 ## References

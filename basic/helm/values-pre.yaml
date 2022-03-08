@@ -1,0 +1,4 @@
+env:
+  name: pre
+helloworld:
+  message: Hello world from pre!

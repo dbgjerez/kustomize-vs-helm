@@ -1,0 +1,5 @@
+env:
+  name: dev
+helloworld:
+  message: hello
+replicas: 1
