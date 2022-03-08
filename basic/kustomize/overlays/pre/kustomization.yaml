@@ -1,0 +1,8 @@
+bases:
+  - ../../base
+
+resources:
+  - namespace.yaml
+
+patchesStrategicMerge:
+  - hello-world.yaml

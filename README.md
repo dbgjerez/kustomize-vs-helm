@@ -34,6 +34,46 @@ Another important aspect is the ```kustomization.yaml``` file that contains some
 ```
 
 ### Usage
+The use of Kustomize is simple. We'll use the example located inside the ```basic/kustomize``` folder.  
+
+This example simulates two descriptors that change according to the environment.
+
+The ```base``` folder contains the ```hello-world.yaml``` and each env contains a ```namespace.yaml``` file. 
+
+```dev``` doesn't touch the ```hello-world.yaml``` file but add a new ```namespace.yaml``` file. If we execute:
+
+```zsh
+❯ kustomize build overlays/dev           
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+---
+apiVersion: v1
+kind: Test
+metadata:
+  name: hello-world
+spec:
+  message: hello
+  replicas: 1
+```
+
+```pre``` also to do the same operations that ```dev```, modify inside the base file ```hello-world.yaml``` the key ```spec.message```:
+```zsh
+❯ kustomize build overlays/pre
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pre
+---
+apiVersion: v1
+kind: Test
+metadata:
+  name: hello-world
+spec:
+  message: Hello world from pre!
+  replicas: 1
+```
 
 ## Helm
 
