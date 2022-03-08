@@ -158,7 +158,22 @@ I've chosen an easy golang application, but it's indifferent the application to 
 | golang-helloworld | https://github.com/dbgjerez/golang-k8s-helm-helloworld | b0rr3g0/golang-hello-world:latest |
 
 ### ArgoCD
+ArgoCD is a declarative, GitOps continous delivery tool for Kubernetes. 
 
-### Use case
+We'll use ArgoCD as the orchestrator of lifecycle of our applications. This meaning that they ArgoCD have the responsibility to synchronize the state, stored in git, with the Kubernetes cluster. 
+
+So... What is the responsibility of Helm or Kustomize?. It's ArgoCD which are going to call the commands necessaries to get the final manifest, so the responsibility is only to work as template engine. 
+
+#### Structure
+Inside the ```argocd``` folder we can found some folders: ```installation```, ```bootstrap``` and ```applications```.
+- **installation:** folder with operator and argocd server descriptor.
+- **bootstrap:** once you've installed argocd, you can initialize the argocd objects. This point only need as prerequisite an ArgoCD server instance. 
+- **applications:** kustomize and helm to deploy the application along the namespaces.
+
+####
 
 ## References
+- helm page
+- kustomize page
+- repo de applicación go
+- argocd

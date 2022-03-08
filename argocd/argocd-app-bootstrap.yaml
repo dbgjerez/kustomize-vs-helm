@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap
+  namespace: openshift-gitops
+spec:
+  destination:
+    name: ''
+    namespace: openshift-gitops
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: gitops/bootstrap
+    repoURL: 'https://gitlab.consulting.redhat.com/iberia-consulting/telefonica/workshop-amq-streams.git'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated: {}
