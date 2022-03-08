@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata: 
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.env.name }}
+    argocd.argoproj.io/managed-by: openshift-gitops
+  name: {{ .Values.env.name }}
