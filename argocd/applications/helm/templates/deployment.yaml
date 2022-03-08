@@ -23,3 +23,11 @@ spec:
         ports:
         - containerPort: 8080
           protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.liveness.path }}
+            port: http
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.readiness.path }}
+            port: http

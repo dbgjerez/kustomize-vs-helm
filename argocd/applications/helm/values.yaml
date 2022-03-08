@@ -6,3 +6,7 @@ replicas: 2
 image:
   name: b0rr3g0/golang-hello-world
   version: latest
+liveness:
+  path: /api/v1/health
+readiness:
+  path: /api/v1/health
