@@ -102,7 +102,7 @@ Once the chart is finish, we only have to manage the values file. We can develop
 ```
 
 ### Usage
-The usage of Helm is basically executing a ```Chart``` with a ```values.yaml``` file. We can have so many values file as we need. The ```values.yaml``` file contain the default values that can be overridden with or own values. 
+The usage of Helm is basically executing a ```Chart``` with a ```values.yaml``` file. We can have so many values file as we need. The ```values.yaml``` file contain the default values that can be overwritten with or own values. 
 
 > NOTE: In this example, we will use helm like a template engine. It's possible to package a chart and deploy it in a registry to be reused. 
 
