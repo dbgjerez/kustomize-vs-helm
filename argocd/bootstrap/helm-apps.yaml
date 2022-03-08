@@ -26,6 +26,6 @@ spec:
         helm:
           valueFiles:
             - values.{{env}}.yaml
-        destination:
-          namespace: openshift-gitops
-          server: 'https://kubernetes.default.svc'
+      destination:
+        namespace: openshift-gitops
+        server: 'https://kubernetes.default.svc'
