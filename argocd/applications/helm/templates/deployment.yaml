@@ -26,8 +26,8 @@ spec:
         livenessProbe:
           httpGet:
             path: {{ .Values.liveness.path }}
-            port: http
+            port: 8080
         readinessProbe:
           httpGet:
             path: {{ .Values.readiness.path }}
-            port: http
+            port: 8080
