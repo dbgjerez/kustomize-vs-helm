@@ -9,8 +9,8 @@ spec:
     namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
   source:
-    path: gitops/bootstrap
-    repoURL: 'https://gitlab.consulting.redhat.com/iberia-consulting/telefonica/workshop-amq-streams.git'
+    path: argocd/bootstrap
+    repoURL: 'https://github.com/dbgjerez/kustomize-vs-helm.git'
     targetRevision: HEAD
   project: default
   syncPolicy:
