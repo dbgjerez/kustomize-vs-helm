@@ -11,6 +11,10 @@ spec:
     matchLabels:
       deployment: {{ .Values.app.name }}-{{ .Values.env.name }}
   template:
+    metadata:
+      annotations:
+      labels:
+        deployment: {{ .Values.app.name }}-{{ .Values.env.name }}
     spec:
       containers:
       - name: {{ .Values.app.name }}-{{ .Values.env.name }}
