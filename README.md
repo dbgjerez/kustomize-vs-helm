@@ -148,24 +148,6 @@ spec:
   replicas: 1
 ```
 
-```zsh
-❯ helm template -f values-pre.yaml .
----
-# Source: helm-features/templates/namespace.yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: pre
----
-# Source: helm-features/templates/hello-world.yaml
-apiVersion: v1
-kind: Test
-metadata:
-  name: hello-world
-spec:
-  message: Hello world from pre!
-  replicas: 1
-```
 ## Example
 
 ### ArgoCD
