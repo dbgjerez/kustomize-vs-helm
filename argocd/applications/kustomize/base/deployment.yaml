@@ -12,13 +12,12 @@ spec:
   template:
     metadata:
       annotations:
-      labels:
-        deployment: golang-helloworld
+        labels:
+          deployment: golang-helloworld
     spec:
       containers:
       - name: golang-helloworld
         image: b0rr3g0/golang-hello-world:latest
-        name: golang-helloworld
         ports:
         - containerPort: 8080
           protocol: TCP
