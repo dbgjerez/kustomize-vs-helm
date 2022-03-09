@@ -3,3 +3,8 @@ bases:
 
 resources:
   - namespace.yaml
+
+commonLabels:
+  env: dev-kustomize
+
+namespace: dev-kustomize

@@ -3,11 +3,9 @@ kind: Deployment
 metadata:
   labels:
     app: golang-helloworld
-    namespace: {{ .Values.env.name }}
   name: golang-helloworld
-  namespace: 
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: 2
   selector:
     matchLabels:
       deployment: golang-helloworld
@@ -19,7 +17,7 @@ spec:
     spec:
       containers:
       - name: golang-helloworld
-        image: {{ .Values.image.name }}:{{ .Values.image.version }}
+        image: b0rr3g0/golang-hello-world:latest
         name: golang-helloworld
         ports:
         - containerPort: 8080
