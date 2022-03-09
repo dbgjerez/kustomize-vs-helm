@@ -2,9 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: {{ .Values.app.name }}
+    app: golang-helloworld
     namespace: {{ .Values.env.name }}
-  name: {{ .Values.app.name }}-{{ .Values.env.name }}
+  name: golang-helloworld
 spec:
   ports:
   - name: 8080-tcp
@@ -12,6 +12,6 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    deployment: {{ .Values.app.name }}-{{ .Values.env.name }}
+    deployment: golang-helloworld
 status:
   loadBalancer: {}
