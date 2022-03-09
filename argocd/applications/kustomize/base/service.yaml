@@ -3,7 +3,6 @@ kind: Service
 metadata:
   labels:
     app: golang-helloworld
-    namespace: {{ .Values.env.name }}
   name: golang-helloworld
 spec:
   ports:
