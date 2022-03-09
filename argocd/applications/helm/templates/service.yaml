@@ -4,7 +4,7 @@ metadata:
   labels:
     app: {{ .Values.app.name }}
     namespace: {{ .Values.env.name }}
-  name: {{ .Values.app.name }}-{{ .Values.env.name }}
+  name: {{ .Values.app.name }}
   namespace: {{ .Values.env.name }}
 spec:
   ports:
@@ -13,6 +13,6 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    deployment: {{ .Values.app.name }}-{{ .Values.env.name }}
+    deployment: {{ .Values.app.name }}
 status:
   loadBalancer: {}
