@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: {{ .Values.app.name }}
-    namespace: {{ .Values.env.name }}
+    env: {{ .Values.env.name }}
   name: {{ .Values.app.name }}
   namespace: {{ .Values.env.name }}
 spec:
