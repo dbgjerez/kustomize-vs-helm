@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata: 
+  labels:
+    kubernetes.io/metadata.name: pre-kustomize
+    argocd.argoproj.io/managed-by: openshift-gitops
+  name: pre-kustomize
