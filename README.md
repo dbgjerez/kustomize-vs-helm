@@ -201,7 +201,7 @@ Finally, we'll check that all ours instances are running:
 ```
 
 ## References
-- helm page
-- kustomize page
-- repo de applicación go
-- argocd
+- [Helm](https://helm.sh/docs/)
+- [Kustomize](https://kubectl.docs.kubernetes.io/)
+- [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)
+- [Golang example application](https://github.com/dbgjerez/golang-k8s-helm-helloworld)
