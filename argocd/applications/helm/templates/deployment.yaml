@@ -4,22 +4,22 @@ metadata:
   labels:
     app: {{ .Values.app.name }}
     namespace: {{ .Values.env.name }}
-  name: {{ .Values.app.name }}-{{ .Values.env.name }}
+  name: {{ .Values.app.name }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      deployment: {{ .Values.app.name }}-{{ .Values.env.name }}
+      deployment: {{ .Values.app.name }}
   template:
     metadata:
       annotations:
       labels:
-        deployment: {{ .Values.app.name }}-{{ .Values.env.name }}
+        deployment: {{ .Values.app.name }}
     spec:
       containers:
-      - name: {{ .Values.app.name }}-{{ .Values.env.name }}
+      - name: {{ .Values.app.name }}
         image: {{ .Values.image.name }}:{{ .Values.image.version }}
-        name: {{ .Values.app.name }}-{{ .Values.env.name }}
+        name: {{ .Values.app.name }}
         ports:
         - containerPort: 8080
           protocol: TCP
