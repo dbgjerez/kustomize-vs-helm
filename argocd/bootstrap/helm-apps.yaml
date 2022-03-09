@@ -27,5 +27,5 @@ spec:
           valueFiles:
             - values.{{env}}.yaml
       destination:
-        namespace: {{env}}-helm
+        namespace: '{{env}}-helm'
         server: 'https://kubernetes.default.svc'
