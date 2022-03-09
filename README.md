@@ -186,6 +186,10 @@ If we wait some seconds, we can check that all the applications have been create
 
 ![ArgoCD dashboard](images/argocd-dashboard.png)
 
+In addition, if we click any application, we can see the resources deployed to run our instance. For example, the dev application with helm:
+
+![Helm dev application](images/helm-dev.png)
+
 Finally, we'll check that all ours instances are running: 
 ```zsh
 ❯ oc get route -A | \
