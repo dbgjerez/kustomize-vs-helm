@@ -5,6 +5,7 @@ metadata:
     app: {{ .Values.app.name }}
     namespace: {{ .Values.env.name }}
   name: {{ .Values.app.name }}
+  namespace: {{ .Values.env.name }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
