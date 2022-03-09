@@ -1,10 +1,8 @@
-bases:
-  - ../../base
-
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 resources:
+  - ../../base
   - namespace.yaml
-
 commonLabels:
   env: prod-kustomize
-
 namespace: prod-kustomize
