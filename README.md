@@ -170,7 +170,35 @@ Inside the ```argocd``` folder we can found some folders: ```installation```, ``
 - **bootstrap:** once you've installed argocd, you can initialize the argocd objects. This point only need as prerequisite an ArgoCD server instance. 
 - **applications:** kustomize and helm to deploy the application along the namespaces.
 
-####
+#### Run
+To run the complete example, you only have to apply the bootstrap application. This application link two ApplicationSet, one for Helm and another for Kustomize. 
+
+Each ApplicationSet creates many Applications as environments we have. 
+
+Once each Application is created, they synchronize the state between or cluster to the git repository. 
+
+```zsh
+❯ oc apply -f argocd/installation/argocd-app-bootstrap.yaml 
+application.argoproj.io/bootstrap created
+```
+
+If we wait some seconds, we can check that all the applications have been created:
+
+![ArgoCD dashboard](images/argocd-dashboard.png)
+
+Finally, we'll check that all ours instances are running: 
+```zsh
+❯ oc get route -A | \
+  grep golang-helloworld | \
+  awk '{print $3}' | \
+  xargs -I {} curl -sL -w " [%{http_code}] [{}] \\n" {}/api/v1/grettings 
+{"msg":"Hello world"} [200] [golang-helloworld-dev-helm.apps.cluster-da16.sandbox362.opentlc.com] 
+{"msg":"Hello world"} [200] [golang-helloworld-dev-kustomize.apps.cluster-da16.sandbox362.opentlc.com] 
+{"msg":"Hello world"} [200] [golang-helloworld-pre-helm.apps.cluster-da16.sandbox362.opentlc.com] 
+{"msg":"Hello world"} [200] [golang-helloworld-pre-kustomize.apps.cluster-da16.sandbox362.opentlc.com] 
+{"msg":"Hello world"} [200] [golang-helloworld-prod-helm.apps.cluster-da16.sandbox362.opentlc.com] 
+{"msg":"Hello world"} [200] [golang-helloworld-prod-kustomize.apps.cluster-da16.sandbox362.opentlc.com]
+```
 
 ## References
 - helm page
