@@ -11,9 +11,8 @@ spec:
       deployment: golang-helloworld
   template:
     metadata:
-      annotations:
-        labels:
-          deployment: golang-helloworld
+      labels:
+        deployment: golang-helloworld
     spec:
       containers:
       - name: golang-helloworld
