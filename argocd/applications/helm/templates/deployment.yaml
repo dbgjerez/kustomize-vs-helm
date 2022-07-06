@@ -15,6 +15,7 @@ spec:
     metadata:
       annotations:
       labels:
+        app.kubernetes.io/name: {{ .Values.app.name }}
         deployment: {{ .Values.app.name }}
     spec:
       containers:
