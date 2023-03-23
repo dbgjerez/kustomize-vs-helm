@@ -164,6 +164,18 @@ We'll use ArgoCD as the orchestrator of the lifecycle of our applications. This 
 
 So... What is the responsibility of Helm or Kustomize?. ArgoCD is going to call the necessary commands to get the final manifest, so the responsibility is only to work as a template engine. 
 
+#### Installation
+The ArgoCD operator facilities the complete stack installation, also you can use other ways to install it.
+
+To install it: 
+
+```bash
+oc apply -f argocd/installation/gitops-operator.yaml -n openshift-operators
+subscription.operators.coreos.com/openshift-gitops created
+```
+
+At this point, you can use the default ArgoCD installed instance or override it with your own ArgoCD descriptor. 
+
 #### Structure
 Inside the ```argocd``` folder we can found some folders: ```installation```, ```bootstrap``` and ```applications```.
 - **installation:** folder with operator and argocd server descriptor.
