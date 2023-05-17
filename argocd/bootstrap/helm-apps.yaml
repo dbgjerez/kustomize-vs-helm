@@ -21,7 +21,7 @@ spec:
           selfHeal: true
       source:
         repoURL: 'https://github.com/dbgjerez/kustomize-vs-helm.git'
-        targetRevision: HEAD
+        targetRevision: develop
         path: argocd/applications/helm
         helm:
           valueFiles:
