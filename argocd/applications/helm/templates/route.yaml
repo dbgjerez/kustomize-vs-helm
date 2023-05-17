@@ -10,5 +10,5 @@ spec:
   to:
     kind: Service
     name: {{ .Values.app.name }}
-  termination:
-    tls: edge
+  tls:
+    termination: edge
