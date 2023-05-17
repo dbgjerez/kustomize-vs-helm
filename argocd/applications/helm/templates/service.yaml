@@ -8,11 +8,8 @@ metadata:
   namespace: {{ .Values.env.name }}
 spec:
   ports:
-  - name: 8080-tcp
-    port: 8080
+  - name: http
     protocol: TCP
     targetPort: 8080
   selector:
     deployment: {{ .Values.app.name }}
-status:
-  loadBalancer: {}

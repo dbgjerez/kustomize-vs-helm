@@ -8,7 +8,9 @@ metadata:
   namespace: {{ .Values.env.name }}
 spec:
   port:
-    targetPort: 8080
+    name: http
   to:
     kind: Service
     name: {{ .Values.app.name }}
+  termination:
+    tls: edge
