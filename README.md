@@ -219,7 +219,7 @@ Finally, we'll check that all ours instances are running:
 ❯ oc get route -A | \
   grep golang-helloworld | \
   awk '{print $3}' | \
-  xargs -I {} curl -sL -w " [%{http_code}] [{}] \\n" {}/api/v1/grettings 
+  xargs -I {} curl -sL -w " [%{http_code}] [{}] \\n" {}/api/v1/greetings 
 {"msg":"Hello world"} [200] [golang-helloworld-dev-helm.apps.cluster-da16.sandbox362.opentlc.com] 
 {"msg":"Hello world"} [200] [golang-helloworld-dev-kustomize.apps.cluster-da16.sandbox362.opentlc.com] 
 {"msg":"Hello world"} [200] [golang-helloworld-pre-helm.apps.cluster-da16.sandbox362.opentlc.com] 
