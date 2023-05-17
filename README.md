@@ -174,6 +174,18 @@ oc apply -f argocd/installation/gitops-operator.yaml -n openshift-operators
 subscription.operators.coreos.com/openshift-gitops created
 ```
 
+The ArgoCD URL is:
+
+```bash
+oc get route -A | grep openshift-gitops-server | awk '{print $3}'
+```
+
+And, we need the password too: 
+
+```bash
+oc -n openshift-gitops get secret openshift-gitops-cluster -o json | jq -r '.data["admin.password"]' | base64 -d
+```
+
 At this point, you can use the default ArgoCD installed instance or override it with your own ArgoCD descriptor. 
 
 #### Structure
