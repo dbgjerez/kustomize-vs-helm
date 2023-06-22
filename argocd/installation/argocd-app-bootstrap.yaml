@@ -13,5 +13,3 @@ spec:
     repoURL: 'https://github.com/dbgjerez/kustomize-vs-helm.git'
     targetRevision: HEAD
   project: default
-  syncPolicy:
-    automated: {}
